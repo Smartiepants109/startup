@@ -15,8 +15,13 @@ After logging in, users should be able to see any open lobbies. Once the "game" 
 In an interface similar to Tinder, users should be able to collectively vote on food sources that they are most interested in consuming from. There would be multiple rounds, depending on how many restaurants are nearby and the lobby's settings (cost, avg. reviews, max rounds). In each round, the top-ranking restaurants will be promoted to the next. If the final round ends with a tie, then the winner is chosen at random. There will be a "rock the vote" option, which if chosen by the majority of users, will switch the winner to whatever was in second place instead.
 ## Design Images (with descriptions)
 ![login](loginpage.png)
+
 The login page will be generic. Nothing special here. Checks login information against authentication information stored in a database. Creates a session token for the application to use.
+
 ![lobbySelector](lobbySelectionPage.png)
+
 Lobbies on the internet are listed here. You can also edit your profile settings through the blue button at the bottom. Creating a lobby is done using the green button on the bottom.
+
 ![lobby](lobby.png)
+
 This is the lobby screen. With a chatbox on the bottom for non-hosts, users will be able to message each other until the minigame starts.
