@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tender - Open Lobbies</title>
+    <link rel="icon" href="myicon.ico" />
+</head>
+<body>
+    <header>
+        <h1>Tender<sup>&reg;</sup></h1>
+        <nav>
+            <menu>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="lobbies.html">Lobbies</a></li>
+                <li><a href="lobby.html">Host a Game</a></li>
+                <li><a href="about.html">About</a></li>
+            </menu>
+        </nav>
+        <hr />
+    </header>
+    <main>
+        <div>
+            <img width="400px" src="banner.jpg" alt="placeholder" />
+        </div>
+        <div id = "serverlist">The server list will go here, populated by the below script. the HTML for an example will be below.</div>
+	<!-- Example server entry -->
+        <div class="example_DELETETHISLATER">
+            <strong>Lobby: Lobby 1</strong><br>
+            Host: John Doe<br>
+            Users Present: 5<br>
+            General Location: Utah <br>
+	    <a href = "lobby.html"><strong>Join</strong></a>
+        </div>
+	<script src = "fetchServerListScript.js"></script>
+    </main>
+    <footer>
+        <hr />
+        <span>Connor Blackburn</span><br />
+        <a href="https://github.com/Smartiepants109/startup">GitHub</a>
+    </footer>
+</body>
+</html>
