@@ -38,20 +38,7 @@
 					Pressing "Submit" the first time will start the server. Any subsequent times will update the server information.
 				</div><br><br>
 				<div id = "lobbyinfo">
-					<div id = "chat">
-						<strong>Chat</strong>
-						<ul id="messages">
-							<li class="message"> <!-- DELETE THIS LATER. THIS IS AN EXAMPLE -->
-								<span class="sender">John Doe</span>
-								<span class="timestamp">12:30 PM</span>
-								<div class="content">Hello, how are you?</div>
-							</li>
-						</ul>
-						<div id="input-container">
-							<input type="text" id="message-input" placeholder="Type your message...">
-							<button id="send-button" onclick="sendMessage()">Send</button>
-						</div>
-					</div>
+					3/X users. 
 				</div>
 			</div>
 			<div id = duringRound> <!-- Each of these divs are hidden unless the lobby is in the correct state. -->
@@ -62,6 +49,20 @@
 				<img width="400px" src="" alt="loading image..." /><br>
 				Congrats! _____ has won! <br>
 				<button type = "dislike">I don't want this (0/X votes required)</button>
+			</div>
+			<div id = "chat"> <!-- Except for this one. Chat is always available to the lobby. -->
+				<strong>Chat</strong>
+				<ul id="messages">
+					<li class="message"> <!-- DELETE THIS LATER. THIS IS AN EXAMPLE -->
+						<span class="sender">John Doe</span>
+						<span class="timestamp">12:30 PM</span>
+						<div class="content">Hello, how are you?</div>
+					</li>
+				</ul>
+				<div id="input-container">
+					<input type="text" id="message-input" placeholder="Type your message...">
+					<button id="send-button" onclick="sendMessage()">Send</button>
+				</div>
 			</div>
 		</main>
 		<footer><hr />
