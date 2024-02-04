@@ -23,7 +23,18 @@
         <div>
             <img width="400px" src="banner.jpg" alt="placeholder" />
         </div>
-        <div class = "hostcontrols"></div>
+        <div id = "hostcontrols">
+		<form method="get" action="play.html">
+			<label for="lTitle">Lobby Title</label>
+			<input size = 40 type="text" id="lTitle" placeholder="Lobby title here" /><br>
+			<label for="lHostNick">Nickname &nbsp;</label>
+			<input size = 40 type="text" id="lHostNick" placeholder="Leave blank for your username (not suggested)" /><br>
+			<label for="lPass">Password &nbsp;</label>
+			<input size = 40 type="text" id="lPass" placeholder="Leave blank for no password (not suggested)" /><br>
+			<button type="submit">Submit</button>
+		</form>
+		Pressing "Submit" the first time will start the server. Any subsequent times will update the server information.
+	</div>
 	<div class = "lobbyinfo"></div>
 
 
