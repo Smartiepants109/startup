@@ -1,69 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tender - LobbyTitle</title>
-    <link rel="icon" href="myicon.ico" />
-</head>
-<body>
-    <header>
-        <h1>Tender<sup>&reg;</sup></h1>
-        <nav>
-            <menu>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="lobbies.html">Lobbies</a></li>
-                <li><a href="lobby.html">Host a Game</a></li>
-                <li><a href="about.html">About</a></li>
-            </menu>
-        </nav>
-        <hr />
-    </header>
-    <main>
-        <div>
-            <img width="400px" src="banner.jpg" alt="placeholder" />
-        </div>
-        <div id = "hostcontrols">
-		<form method="get" action="play.html">
-			<label for="lTitle">Lobby Title</label>
-			<input size = 40 type="text" id="lTitle" placeholder="Lobby title here" /><br>
-			<label for="lHostNick">Nickname &nbsp;</label>
-			<input size = 40 type="text" id="lHostNick" placeholder="Leave blank for your username (not suggested)" /><br>
-			<label for="lPass">Password &nbsp;</label>
-			<input size = 40 type="text" id="lPass" placeholder="Leave blank for no password (not suggested)" /><br>
-			<button type="submit">Submit</button>
-		</form>
-		Pressing "Submit" the first time will start the server. Any subsequent times will update the server information.
-	</div>
-      <br>
-      <br>
-	<div id = "lobbyinfo">
-		<div id = "chat">
-          <strong>Chat</strong>
-			<ul id="messages">
-				<li class="message"> <!-- DELETE THIS LATER. THIS IS AN EXAMPLE -->
-					<span class="sender">John Doe</span>
-					<span class="timestamp">12:30 PM</span>
-					<div class="content">Hello, how are you?</div>
-				</li>
-			</ul>
-			<div id="input-container">
-				<input type="text" id="message-input" placeholder="Type your message...">
-				<button id="send-button" onclick="sendMessage()">Send</button>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Tender - LobbyTitle</title>
+		<link rel="icon" href="myicon.ico" />
+	</head>
+	<body>
+		<header>
+			<h1>Tender<sup>&reg;</sup></h1>
+			<nav>
+				<menu>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="lobbies.html">Lobbies</a></li>
+					<li><a href="lobby.html">Host a Game</a></li>
+					<li><a href="about.html">About</a></li>
+				</menu>
+			</nav>
+			<hr />
+		</header>
+		<main>
+			<div>
+				<img width="400px" src="banner.jpg" alt="placeholder" />
 			</div>
-		</div>
-	</div>
-
-
-
-
-
-        
-    </main>
-    <footer>
-        <hr />
-        <span>Connor Blackburn</span><br />
-        <a href="https://github.com/Smartiepants109/startup">GitHub</a>
-    </footer>
-</body>
+			<div id = "pregame">
+				<div id = "hostcontrols">
+					<form method="get" action = "lobbyDataList">
+						<input type="text" id="lobbyID" value="getValidLobbyID" readonly>
+						<label for="lTitle">Lobby Title</label>
+						<input size = 40 type="text" id="lTitle" placeholder="Lobby title here" /><br>
+						<label for="lHostNick">Nickname &nbsp;</label>
+						<input size = 40 type="text" id="lHostNick" placeholder="Leave blank for your username (not suggested)" /><br>
+						<label for="lPass">Password &nbsp;</label>
+						<input size = 40 type="text" id="lPass" placeholder="Leave blank for no password (not suggested)" /><br>
+						<button type="submit">Submit</button>
+					</form>
+					Pressing "Submit" the first time will start the server. Any subsequent times will update the server information.
+				</div><br><br>
+				<div id = "lobbyinfo">
+					<div id = "chat">
+						<strong>Chat</strong>
+						<ul id="messages">
+							<li class="message"> <!-- DELETE THIS LATER. THIS IS AN EXAMPLE -->
+								<span class="sender">John Doe</span>
+								<span class="timestamp">12:30 PM</span>
+								<div class="content">Hello, how are you?</div>
+							</li>
+						</ul>
+						<div id="input-container">
+							<input type="text" id="message-input" placeholder="Type your message...">
+							<button id="send-button" onclick="sendMessage()">Send</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id = duringRound>
+				<img width="400px" src="" alt="loading image..." />
+				<form
+			</div>
+			<div id = postRound></div>
+		</main>
+		<footer><hr />
+			<span>Connor Blackburn</span><br />
+			<a href="https://github.com/Smartiepants109/startup">GitHub</a>
+		</footer>
+	</body>
 </html>
