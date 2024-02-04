@@ -35,7 +35,21 @@
 		</form>
 		Pressing "Submit" the first time will start the server. Any subsequent times will update the server information.
 	</div>
-	<div class = "lobbyinfo"></div>
+	<div id = "lobbyinfo">
+		<div id = "chat">
+			<ul id="messages">
+				<li class="message"> <!-- DELETE THIS LATER. THIS IS AN EXAMPLE  FIXME -->
+					<span class="sender">John Doe</span>
+					<span class="timestamp">12:30 PM</span>
+					<div class="content">Hello, how are you?</div>
+				</li>
+			</ul>
+			<div id="input-container">
+				<input type="text" id="message-input" placeholder="Type your message...">
+				<button id="send-button" onclick="sendMessage()">Send</button>
+			</div>
+		</div>
+	</div>
 
 
 
