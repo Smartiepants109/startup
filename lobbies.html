@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,12 +8,14 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="myicon.ico" />
 </head>
+
 <body>
     <header>
-        <h1 id="TopHeader">Tender<br>  Welcome, *Username*!</h1>
+        <h1 id="TopHeader">Tender<br> Welcome, *Username*!</h1>
         <nav>
             <ul>
-                <li> <a href="index.html"> Logout</a></li> <!-- Will replace text here with Welcome, *username* when user is logged in. -->
+                <li> <a href="index.html"> Logout</a></li>
+                <!-- Will replace text here with Welcome, *username* when user is logged in. -->
                 <li><a href="lobbies.html">Lobbies</a></li>
                 <li><a href="lobby.html">Host a Game</a></li>
                 <li><a href="about.html">About</a></li>
@@ -24,16 +27,21 @@
         <div>
             <img width="400px" src="banner.jpg" alt="placeholder" />
         </div>
-        <div id = "serverlist">The server list will go here, populated by the below script. the HTML for an example will be below.</div>
-	<!-- Example server entry -->
-        <div class="example_DELETETHISLATER">
-            <strong>Lobby: Lobby 1</strong> 	    
-		<a href = "lobby.html"><strong>Join</strong></a><br>
-            Host: John Doe<br>
-            Users Present: 5<br>
-            General Location: Utah <br>
-        </div>
-	<!--<script src = "fetchServerListScript.js"></script> Commenting this out until I actually write the content of this javascript. Will probably use an ul, but
+        <div id="serverlist">The server list will go here, populated by the below script. the HTML for an example will
+            be below.</div>
+        <!-- Example server entry -->
+        <ul class="serverlist">
+            <li class="server-item">
+                <div class="server-details">
+                    <div class="server-name"><strong>Lobby: Lobby 1</strong></div>
+                    <div class="server-info">
+                        Host: <span class="host">John Doe</span><br>
+                        Users Present: <span class="presentUsers">5</span><br>
+                        General Location: <span class= "location">Utah</span><br></div>
+                </div>
+            </li>
+        </ul>
+        <!--<script src = "fetchServerListScript.js"></script> Commenting this out until I actually write the content of this javascript. Will probably use an ul, but
 	    i'm not sure, so I'll not use either in this mode. -->
     </main>
     <footer>
@@ -42,4 +50,5 @@
         <a href="https://github.com/Smartiepants109/startup">GitHub</a>
     </footer>
 </body>
+
 </html>
