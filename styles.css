@@ -3,56 +3,63 @@ body {
     font-family: Arial, sans-serif;
     font-size: 16px;
     color: #212020;
+    margin: auto;
+    padding: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 #TopHeader{
     background-color: #e1aa1d83;
     padding: 20px;
+    text-align: center;
+    font-size: xxx-large;
+}
+#myName{
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: large;
+}
+#githubLink{
+    color:#0056b3;
+    font-size: larger;
 }
 
-main {
-    width: 80%; /* Adjust the width as needed */
-    max-width: 400px; /* Adjust the maximum width as needed */
-    margin: 0 auto; /* Center horizontally */
-    text-align: center; /* Center text inside main */
-    padding: 20px; /* Add padding for spacing */
-    border: 1px solid #ccc; /* Add border for visual separation */
-    border-radius: 5px; /* Add border radius for rounded corners */
-}
+
 
 form {
-    margin-top: 30px; /* Add margin to separate from the content above */
+    margin-top: 30px; 
 }
 
 input[type="text"],
 input[type="password"],
 button {
-    width: 100%; /* Make input fields and button width 100% of their container */
-    padding: 10px; /* Add padding for spacing */
-    margin-top: 10px; /* Add margin for spacing between elements */
-    box-sizing: border-box; /* Include padding and border in element's total width */
+    width: 100%; 
+    padding: 10px;
+    margin-top: 10px; 
+    box-sizing: border-box; 
 }
 
 button {
-    background-color: #007bff; /* Set button background color */
-    color: #fff; /* Set button text color */
-    border: none; /* Remove default button border */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    cursor: pointer; 
 }
 
 button:hover {
-    background-color: #0056b3; /* Darker background color on hover */
+    background-color: #0056b3; 
 }
 
 h1 {
-    margin-bottom: 10px; /* Add margin below the heading */
+    margin-bottom: 10px; 
 }
 label[for="pword"] {
-    display: block; /* Ensures each label occupies its own line */
-    margin-top: 15px; /* Adjust the top margin as needed */
+    display: block;
+    margin-top: 15px; 
 }
 p {
-    margin-bottom: 20px; /* Add margin below the paragraph */
+    margin-bottom: 20px;
 }
 
 
@@ -73,7 +80,7 @@ nav ul {
 }
 
 nav ul li {
-    /* optional additional styles here. Let's see what it looks like first. */
+    
     font-size: xx-large;
 }
 
@@ -83,43 +90,27 @@ nav ul li a {
 }
 
 
-
-
-/* Main Content Styles */
-/* Example: */
-/*
-.content {
-    padding: 20px;
-}
-*/
-
-/* Footer Styles */
-/* Example: */
-
-.footer {
-    background-color: #c39931;
-    color: #2a2626;
-    padding: 20px;
-    text-align: center;
+header {
+    background-color: #333;  
+    color: #fff; 
+    padding: 10px 20px;
+    margin: 0; 
 }
 
-
-/* Media Queries (Responsive Styles) */
-/* Example: */
-/*
-@media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
-    .navbar li {
-        margin: 10px 0;
-    }
+main {
+    width: 80%; 
+    max-width: 400px;
+    margin: 0 auto; 
+    text-align: center; 
+    padding: 20px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    flex: 1;
 }
-*/
 
-/* Custom Classes (Optional) */
-/* Example: */
-/*
-.custom-class {
-    /* Your custom styles here */
-/*
+footer {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px 20px; 
+    margin: 0; 
+}
