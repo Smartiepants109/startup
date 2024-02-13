@@ -30,6 +30,7 @@ nav ul {
 
 nav ul li {
     /* optional additional styles here. Let's see what it looks like first. */
+    font-size: xx-large;
 }
 
 nav ul li a {
@@ -50,14 +51,14 @@ nav ul li a {
 
 /* Footer Styles */
 /* Example: */
-/*
+
 .footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #c39931;
+    color: #2a2626;
     padding: 20px;
     text-align: center;
 }
-*/
+
 
 /* Media Queries (Responsive Styles) */
 /* Example: */
