@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tender</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="myicon.ico" />
-  </head>
-  <body>
-    <header>
-      <h1 id="TopHeader">Tender<sup>&reg;</sup></h1>
 
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="lobbies.html">Lobbies</a></li>
-          <li><a href="lobby.html">Host a Game</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tender</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="myicon.ico" />
+</head>
 
-      <hr />
-    </header>
+<body>
+  <header>
+    <h1 id="TopHeader">Tender<sup>&reg;</sup></h1>
 
-    <main>
-      <h1>Welcome</h1>
-      <p>Login to create a room, or enter "guest" as your username if you just want to join a lobby that one of your friends is hosting!</p>
-      <form method="get" action="play.html">
-        <label for="uname">username</label>
-        <input type="text" id="uname" placeholder="Your username here" />
-        <button type="submit">Login</button>
-      </form>
-    </main>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="lobbies.html">Lobbies</a></li>
+        <li><a href="lobby.html">Host a Game</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
 
-    <footer>
-      <hr />
-      <span>Connor Blackburn</span>
-      <br />
-      <a href="https://github.com/Smartiepants109/startup">GitHub</a>
-    </footer>
-  </body>
+    <hr />
+  </header>
+
+  <main>
+    <h1>Welcome</h1>
+    <p>Login to create a room, or enter "guest" as your username if you just want to join a lobby that one of your
+      friends is hosting!</p>
+    <form method="get" action="play.html">
+      <label for="uname">Username</label>
+      <br>
+      <input type="text" id="uname" placeholder="Your username here" />
+      <br>
+      <label for="pword">Password&thinsp;</label> <input type="text" id="uname" placeholder="Your password here" />
+      <br>
+      <button type="submit">Login</button>
+    </form>
+  </main>
+
+  <footer>
+    <hr />
+    <span>Connor Blackburn</span>
+    <br />
+    <a href="https://github.com/Smartiepants109/startup">GitHub</a>
+  </footer>
+</body>
+
 </html>
