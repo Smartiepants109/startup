@@ -43,8 +43,7 @@ body {
 
 .join-button {
 
-    padding: 2px;
-    min-width: none;
+    aspect-ratio: 1/1;
     max-width: 50px;
 }
 
