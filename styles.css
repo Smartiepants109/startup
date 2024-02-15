@@ -32,6 +32,15 @@ body {
     text-align: left;
 }
 
+#banner {
+    border-radius: 50%; 
+    width: 100%; 
+    height: auto; 
+    max-width: 100%; 
+    border: 1px solid #333;
+}
+
+
 .server-item {
     display: flex;
     flex-direction: row;
