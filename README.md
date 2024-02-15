@@ -10,7 +10,7 @@ this is structured as your announcement said to:
 [x] - done - 10% Responsive to window resizing. Looks nice on desktop, better on mobile.
 [x] - done - 20% Application elements. Buttons use a onhover css element to make them responsive with a darker color.
 [x] - done - 10% Application text content. Text is displayed using the Georgia font, with exceptions in the footer in order for it to look *impressive*
-[x] - done - 10% Application images. FIXME I should probably get this done. Should the chicken tender image stay? I don't know. Probably just for the About page.
+[x] - done - 10% Application images. made image formatted. :)
 
 
 

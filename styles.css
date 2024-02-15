@@ -15,6 +15,10 @@ body {
     text-align: center;
     font-size: xxx-large;
 }
+#navBar  ul li:hover {
+    background-color: #807777; 
+    padding: 1% 5%
+}
 
 #myName {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -113,6 +117,7 @@ nav ul {
 nav ul li {
     list-style-type: none;
     font-size: xx-large;
+    padding: 1%
 }
 
 nav ul li a {
