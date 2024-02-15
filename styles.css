@@ -1,4 +1,3 @@
-
 body {
     font-family: gerogia;
     font-size: 16px;
@@ -10,57 +9,78 @@ body {
     min-height: 100vh;
 }
 
-#TopHeader{
+#TopHeader {
     background-color: #e1aa1d83;
     padding: 20px;
     text-align: center;
     font-size: xxx-large;
 }
-#myName{
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-font-size: large;
+
+#myName {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
 }
-#githubLink{
-    color:#0056b3;
+
+#githubLink {
+    color: #0056b3;
     font-size: larger;
 }
 
-.serverlist{
+.server-list {
     list-style-type: none;
+    padding: 0;
     text-align: left;
 }
 
+.server-item {
+    display: flex;
+    flex-direction: row;
+}
+
+.server-details {
+    flex-grow: 2;
+}
+
+.join-button {
+
+    padding: 2px;
+    min-width: none;
+    max-width: 50px;
+}
+
 form {
-    margin-top: 30px; 
+    margin-top: 30px;
 }
 
 input[type="text"],
 input[type="password"],
 button {
-    width: 100%; 
+    width: 100%;
     padding: 10px;
-    margin-top: 10px; 
-    box-sizing: border-box; 
+    margin-top: 10px;
+    box-sizing: border-box;
 }
 
 button {
-    background-color: #007bff; 
-    color: #fff; 
-    border: none; 
-    cursor: pointer; 
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3;
 }
 
 h1 {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
+
 label[for="pword"] {
     display: block;
-    margin-top: 15px; 
+    margin-top: 15px;
 }
+
 p {
     margin-bottom: 20px;
 }
@@ -94,26 +114,26 @@ nav ul li a {
 
 
 header {
-    background-color: #333;  
-    color: #fff; 
+    background-color: #333;
+    color: #fff;
     padding: 10px 20px;
-    margin: 0; 
+    margin: 0;
 }
 
 main {
-    width: 80%; 
+    width: 80%;
     max-width: 400px;
-    margin: 0 auto; 
-    text-align: center; 
-    padding: 20px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     flex: 1;
 }
 
 footer {
-    background-color: #333; 
-    color: #fff; 
-    padding: 10px 20px; 
-    margin: 0; 
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    margin: 0;
 }
