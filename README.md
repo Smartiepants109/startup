@@ -6,7 +6,7 @@ this is structured as your announcement said to:
 [x] - done - Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page
 [x] - done - Prerequisite: Notes in your startup Git repository README.md file
 [x] - done - 30% Header, footer, and main content body. Used flex to layout sections.
-[x] - done - 20% Navigation elements. FIXME navelements highlighting is actually a great idea. Might use that.
+[x] - done - 20% Navigation elements. 
 [x] - done - 10% Responsive to window resizing. Looks nice on desktop, better on mobile.
 [x] - done - 20% Application elements. Buttons use a onhover css element to make them responsive with a darker color.
 [x] - done - 10% Application text content. Text is displayed using the Georgia font, with exceptions in the footer in order for it to look *impressive*
