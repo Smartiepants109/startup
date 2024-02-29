@@ -13,7 +13,7 @@
   <header>
     <h1 id="TopHeader">Tender<sup>&reg;</sup></h1>
 
-    <nav id = "navBar">
+    <nav id="navBar">
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="lobbies.html">Lobbies</a></li>
@@ -24,15 +24,15 @@
 
     <hr />
   </header>
-  
+
   <main>
     <div>
       <img id="banner" width="400px" src="banner.jpg" alt="placeholder" />
-      </div>
+    </div>
     <h1>Welcome</h1>
     <p>Login to create a room, or enter "guest" as your username if you just want to join a lobby that one of your
       friends is hosting!</p>
-    <form method="get" action="lobbies.html">
+    <form id = "loginForm" method="get" action="lobbies.html">
       <label for="uname">Username</label>
       <br>
       <input type="text" id="uname" placeholder="Your username here" />
@@ -45,10 +45,22 @@
 
   <footer>
     <hr />
-    <span id = "myName">Connor Blackburn</span>
+    <span id="myName">Connor Blackburn</span>
     <br />
-    <a id = "githubLink" href="https://github.com/Smartiepants109/startup">GitHub</a>
+    <a id="githubLink" href="https://github.com/Smartiepants109/startup">GitHub</a>
   </footer>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+      event.preventDefault(); // don't know what it does by default. Don't want it to do that yet. Only what I tell it to.
+      var username = document.getElementById("uname").value;
+      var password = document.getElementById("pword").value;
+      // Constructing URL
+      var url = "lobbies.html?username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
+      // go to Lobbies while logged in.
+      window.location.href = url;
+    });
+
+  </script>
 </body>
 
 </html>
