@@ -55,7 +55,7 @@ function displayChatMessages() {
             '<div class="content">' + randomMessage + '</div>' +
             '</li>';
         document.getElementById("messages").innerHTML += message;
-    }, 5000); // Repeat every 5 seconds
+    }, 20000);
 }
 
 

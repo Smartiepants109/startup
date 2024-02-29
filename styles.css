@@ -150,3 +150,20 @@ footer {
     padding: 10px 20px;
     margin: 0;
 }
+#chat{
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #a89393;
+    padding: 10px;
+}
+#message-input {
+    width: calc(100% - 80px); 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
+
+#send-button {
+    width: 70px; 
+    padding: 5px; 
+    box-sizing: border-box; 
+}
