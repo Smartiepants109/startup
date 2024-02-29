@@ -1,5 +1,16 @@
 # startup
  cs project
+## JS
+Not much CSS has changed, other than a few things that really bugged me. Sorry, graders. It isn't exactly the same as the css submission, but honestly, not a whole lot has changed. Just a few buttons getting smaller and more inline, as they were bugging me as they were.
+Prerequisite: Simon JavaScript deployed to your production environment  - yup.
+Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page  - yup.
+Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable - that's this, yup!
+Prerequisite: At least 10 git commits spread consistently throughout the assignment period - I have at least 10 of them.
+JavaScript support for future login - have functions inserted and a rudimentary string saver to make it look like its there until it is ready to fully implement.
+JavaScript support for future database data - same.
+JavaScript support for future WebSocket - same.
+JavaScript support for your application's interaction logic - also here.
+
 ## CSS
 this is structured as your announcement said to:
 [x] - done - Prerequisite: Simon CSS deployed to your production environment
