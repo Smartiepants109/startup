@@ -1,9 +1,16 @@
 function getUsername() {
-    return sessionStorage.getItem('username');
+    return localStorage.getItem('username');
+}
+function storeTempData(name, value) {
+    sessionStorage.setItem(name, value);
+}
+
+function getTempData(nombre) {
+    return sessionStorage.getItem(nombre); //name was "deprecated" for some reason, renamed it.
 }
 
 function setUsername(username) {
-    sessionStorage.setItem('username', username);
+    localStorage.setItem('username', username);
 }
 
 function updateHeader() {
@@ -18,8 +25,10 @@ function updateHeader() {
     }
 }
 
-// I ... think that this would call the above function after the page loads?
-updateHeader();
+function getGameData(){
+    return getTempData("gameData");
+}
+
 
 function logout() {
     sessionStorage.removeItem('username');

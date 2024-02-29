@@ -64,3 +64,25 @@ function onKeyPrs(event) {
         sendMessage();
     }
 }
+
+function handleSubmit(event) {
+    event.preventDefault(); 
+
+    var lobbyTitle = document.getElementById("lTitle").value;
+    var nickname = document.getElementById("lHostNick").value;
+    var password = document.getElementById("lPass").value;
+
+    var gameData = {
+        lobbyTitle: lobbyTitle,
+        nickname: nickname || "Your Username",
+        password: password || "None"
+    };
+
+    storeTempData('gameData', JSON.stringify(gameData)); // now lobby will show up in lobbies page, hahaahahahahhahahahahhahahad IM GOING INSANE
+}
+
+document.getElementById("hostcontrols").addEventListener("submit", handleSubmit);
+
+function startGame() {
+    toggleDivs("duringRound");
+}
