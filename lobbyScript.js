@@ -2,7 +2,7 @@ function toggleDivs(divToShow) {
     // takes in the actual div you want to show.
     var divs = ['pregame', 'duringRound', 'postRound'];
 
-    divs.forEach(function(divId) {
+    divs.forEach(function (divId) {
         var div = document.getElementById(divId);
         if (divId === divToShow) {
             div.style.display = 'block';
@@ -32,12 +32,12 @@ function generateChatMessage() {
 function sendMessage() {
     var userInput = document.getElementById("message-input").value;
     if (userInput.trim() !== '') {
-        var currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+        var currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var message = '<li class="message">' +
-                            '<span class="sender">You </span>' +
-                            '<span class="timestamp">' + currentTime + '</span>' +
-                            '<div class="content">' + userInput + '</div>' +
-                        '</li>';
+            '<span class="sender">You </span>' +
+            '<span class="timestamp">' + currentTime + '</span>' +
+            '<div class="content">' + userInput + '</div>' +
+            '</li>';
         document.getElementById("messages").innerHTML += message;
         document.getElementById("message-input").value = ''; // Clear input field
     }
@@ -46,14 +46,14 @@ function sendMessage() {
 // Function to generate and display semi-random chat messages
 function displayChatMessages() {
     var chatDiv = document.getElementById("chat");
-    setInterval(function() {
-        var currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
+    setInterval(function () {
+        var currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         var randomMessage = generateChatMessage();
         var message = '<li class="message">' +
-                            '<span class="sender">John Doe</span>' +
-                            '<span class="timestamp">' + currentTime + '</span>' +
-                            '<div class="content">' + randomMessage + '</div>' +
-                        '</li>';
-        chatDiv.innerHTML += message;
+            '<span class="sender">John Doe</span>' +
+            '<span class="timestamp">' + currentTime + '</span>' +
+            '<div class="content">' + randomMessage + '</div>' +
+            '</li>';
+        document.getElementById("messages").innerHTML += message;
     }, 5000); // Repeat every 5 seconds
 }
