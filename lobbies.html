@@ -11,8 +11,8 @@
 
 <body>
     <header>
-        <h1 id="TopHeader">Tender<br> Welcome, *Username*!</h1>
-        <nav id = "navBar">
+        <h1 id="TopHeader">Tender<br> Welcome, <span id="usernamePlaceholder"></span>!</h1>
+        <nav id="navBar">
             <ul>
                 <li> <a href="index.html"> Logout</a></li>
                 <!-- Will replace text here with Welcome, *username* when user is logged in. -->
@@ -24,7 +24,7 @@
         <hr />
     </header>
     <main>
-        
+
         <div id="serverlist">The server list will go here, populated by the below script. the HTML for an example will
             be below.</div>
         <!-- Example server entry -->
@@ -35,7 +35,7 @@
                     <div class="server-info">
                         Host: <span class="host">John Doe</span><br>
                         Users Present: <span class="presentUsers">5</span><br>
-                        General Location: <span class= "location">Utah</span><br></div>
+                        General Location: <span class="location">Utah</span><br></div>
                 </div>
                 <button class="join-button">Join</button>
             </li>
@@ -45,10 +45,31 @@
     </main>
     <footer>
         <hr />
-        <span id = "myName">Connor Blackburn</span>
+        <span id="myName">Connor Blackburn</span>
         <br />
-        <a id = "githubLink" href="https://github.com/Smartiepants109/startup">GitHub</a>
-      </footer>
+        <a id="githubLink" href="https://github.com/Smartiepants109/startup">GitHub</a>
+    </footer>
+    <script>
+        // Function to get URL parameter by name. Very useful.
+        function getParameterByName(name) {
+            const qStr = window.location.search;
+            console.log(qStr);
+            const urlParams = new URLSearchParams(qStr);
+            console.log(urlParams.get(name));
+            return urlParams.get(name);
+        }
+
+        // Get the username parameter from the URL
+        var username = getParameterByName('username');
+
+        // Update the header to display the username
+        var usernamePlaceholder = document.getElementById('usernamePlaceholder');
+        if (username) {
+            usernamePlaceholder.textContent = username;
+        } else {
+            usernamePlaceholder.textContent = "Guest";
+        }
+    </script>
 </body>
 
 </html>
