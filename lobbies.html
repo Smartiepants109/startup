@@ -29,7 +29,7 @@
             be below.</div>
         <!-- Example server entry -->
         <ul class="server-list">
-            <!-- removed previous placeholder for lobbies that open and close randomly.-->
+            <!-- removed previous placeholder for lobbies that open and close randomly. This is normally the database. But you aren't able to see your own server in the server browser. So, I opted to do this instead. This will be the database, however.-->
         </ul>
         <!--<script src = "fetchServerListScript.js"></script> Commenting this out until I actually write the content of this javascript. Will probably use an ul, but
 	    i'm not sure, so I'll not use either in this mode. -->
@@ -100,6 +100,14 @@
         // 5 seconds. 1/1000. remember.
         setInterval(updateServerList, 5000);
     </script>
+    <script>
+        window.addEventListener('load', function() {
+            // Your function to be executed once the page loads
+            // For example:
+            updateHeader();
+        });
+    </script>
+    
 </body>
 
 </html>

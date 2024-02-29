@@ -37,7 +37,7 @@
       <br>
       <input type="text" id="uname" placeholder="Your username here" />
       <br>
-      <label for="pword">Password&thinsp;</label> <input type="text" id="uname" placeholder="Your password here" />
+      <label for="pword">Password&thinsp;</label> <input type="text" id="pword" placeholder="Your password here" />
       <br>
       <button type="submit">Login</button>
     </form>
@@ -49,13 +49,14 @@
     <br />
     <a id="githubLink" href="https://github.com/Smartiepants109/startup">GitHub</a>
   </footer>
+  <script src = "loginHandler.js"></script>
   <script>
     document.getElementById("loginForm").addEventListener("submit", function (event) {
       event.preventDefault(); // don't know what it does by default. Don't want it to do that yet. Only what I tell it to.
       var username = document.getElementById("uname").value;
       var password = document.getElementById("pword").value;
-      // Constructing URL
-      var url = "lobbies.html?username=" + encodeURIComponent(username) + "&password=" + encodeURIComponent(password);
+      setUsername(username);
+      var url = "lobbies.html?username=" + encodeURIComponent(username);
       // go to Lobbies while logged in.
       window.location.href = url;
     });

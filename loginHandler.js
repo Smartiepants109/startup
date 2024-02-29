@@ -11,8 +11,10 @@ function updateHeader() {
     var usernamePlaceholder = document.getElementById('usernamePlaceholder');
     if (username) {
         usernamePlaceholder.textContent = username;
+        return username;
     } else {
         usernamePlaceholder.textContent = "Guest";
+        return "guest";
     }
 }
 
