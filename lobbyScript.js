@@ -86,3 +86,21 @@ document.getElementById("hostcontrols").addEventListener("submit", handleSubmit)
 function startGame() {
     toggleDivs("duringRound");
 }
+let tickerCount = 0;
+
+function handleButtonClick(action) { // RN there are no images, as I can't really use JS to generate one. I'll just leave the placeholder
+    //and make it so that once you get to 20, it calls the game "over". It would not be a consistent number like this in the actual
+    //game, so uh. 20 is all I'm willing to spam. In the future, it would 
+
+    tickerCount = tickerCount + 1; 
+   
+    if (tickerCount >= 20) {
+        toggleDivs("postRound");
+    }
+}
+function rtv(){
+    //finished product will only do this if enough votes from group. 
+    document.getElementById("Congradulations").textContent = "Understood. The next highest is _____."
+    document.getElementById("rtv").textContent = "I don't want this (1/X votes required [met!])"
+}
+

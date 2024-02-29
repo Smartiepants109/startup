@@ -56,17 +56,17 @@
 		</div>
 		<div id="duringRound"> <!-- Each of these divs are hidden unless the lobby is in the correct state. -->
 			<img width="400px" src="" alt="loading image..." /><br>
-			<button type="dislike">Dislike</button><button type="like">Like</button>
+			<button id="dislike" type="dislike">Dislike</button><button id="like" type="like">Like</button>
 		</div>
 		<div id="postRound">
 			<img width="400px" src="" alt="loading image..." /><br>
-			Congrats! _____ has won! <br>
-			<button type="dislike">I don't want this (0/X votes required)</button>
+		<span id = "Congradulations">Congradulations!  _____ has won! </span><br>
+		<button id="rtv" type="rtv">I don't want this (0/X votes required)</button>
 		</div>
 		<div id="chat"> <!-- Except for this one. Chat is always available to the lobby. -->
 			<strong>Chat</strong>
 			<ul id="messages">
-				
+
 			</ul>
 			<div id="input-container">
 				<input type="text" id="message-input" placeholder="Type your message..." onkeypress="onKeyPrs(event)">
@@ -88,6 +88,15 @@
 			updateHeader();
 			displayChatMessages();
 			toggleDivs("pregame");
+			document.getElementById("like").addEventListener("click", function () {
+				handleButtonClick("like");
+			});
+			document.getElementById("dislike").addEventListener("click", function () {
+				handleButtonClick("dislike");
+			});
+			document.getElementById("rtv").addEventListener("click", function () {
+				rtv();
+			});
 		});
 	</script>
 	<script src="lobbyScript.js"></script>
