@@ -29,16 +29,7 @@
             be below.</div>
         <!-- Example server entry -->
         <ul class="server-list">
-            <li class="server-item">
-                <div class="server-details">
-                    <div class="server-name"><strong>Lobby: Lobby 1</strong></div>
-                    <div class="server-info">
-                        Host: <span class="host">John Doe</span><br>
-                        Users Present: <span class="presentUsers">5</span><br>
-                        General Location: <span class="location">Utah</span><br></div>
-                </div>
-                <button class="join-button">Join</button>
-            </li>
+            <!-- removed previous placeholder for lobbies that open and close randomly.-->
         </ul>
         <!--<script src = "fetchServerListScript.js"></script> Commenting this out until I actually write the content of this javascript. Will probably use an ul, but
 	    i'm not sure, so I'll not use either in this mode. -->
@@ -49,7 +40,66 @@
         <br />
         <a id="githubLink" href="https://github.com/Smartiepants109/startup">GitHub</a>
     </footer>
-    <script src = "loginHandler.js">    </script>
+    <script src="loginHandler.js">    </script>
+    <script>
+        function addServerItem() {
+            var serverList = document.getElementById('serverlist');
+
+            var serverItem = document.createElement('li');
+            serverItem.classList.add('server-item');
+
+            var serverDetails = document.createElement('div');
+            serverDetails.classList.add('server-details');
+
+            var serverName = document.createElement('div');
+            serverName.classList.add('server-name');
+            serverName.innerHTML = '<strong>Lobby: Lobby ' + (Math.floor(Math.random() * 999)) + '</strong>';
+
+            var serverInfo = document.createElement('div');
+            serverInfo.classList.add('server-info');
+            serverInfo.innerHTML = 'Host: <span class="host">John Doe</span><br>' +
+                'Users Present: <span class="presentUsers">5</span><br>' +
+                'General Location: <span class="location">Utah</span><br>';
+
+            serverDetails.appendChild(serverName);
+            serverDetails.appendChild(serverInfo);
+
+            serverItem.appendChild(serverDetails);
+
+            var joinButton = document.createElement('button');
+            joinButton.classList.add('join-button');
+            joinButton.textContent = 'Join';
+
+            serverItem.appendChild(joinButton);
+
+            serverList.appendChild(serverItem);
+        }
+
+
+        function removeServerItem() {
+            var serverList = document.getElementById('serverlist');
+            if (serverList.children.length > 0) {
+                var randomIndex = Math.floor(Math.random() * serverList.children.length);
+                serverList.removeChild(serverList.children[randomIndex]);
+            }
+        }
+        function updateServerList() {
+            var serverList = document.getElementById('serverlist');
+            var shouldAdd = Math.random() < 0.7; // 50% chance to add, 50% chance to remove
+            if (shouldAdd) {
+                addServerItem();
+            } else {
+                if (serverList.children.length == 0) {
+                    addServerItem();
+                } else {
+                    removeServerItem();
+                }
+            }
+        }
+
+        // 5 seconds. 1/1000. remember.
+        setInterval(updateServerList, 5000);
+    </script>
 </body>
 
 </html>
