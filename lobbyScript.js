@@ -57,3 +57,10 @@ function displayChatMessages() {
         document.getElementById("messages").innerHTML += message;
     }, 5000); // Repeat every 5 seconds
 }
+
+
+function onKeyPrs(event) {
+    if (event.keyCode === 13) {
+        sendMessage();
+    }
+}
