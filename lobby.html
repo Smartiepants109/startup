@@ -1,85 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Tender - LobbyTitle</title>
-		<link rel="stylesheet" href="styles.css">
-		<link rel="icon" href="myicon.ico" />
-	</head>
-	<body>
-		<header>
-			<h1 id="TopHeader">Tender <br>  Welcome, <span id="usernamePlaceholder"></span>!</h1>
-			<nav id = "navBar">
-				<ul>
-					<li><a href="index.html" onclick="logout()"> Logout</a></li> <!-- Will replace text here with Welcome, *username* when user is logged in. -->
-					<li><a href="lobbies.html">Lobbies</a></li>
-					<li><a href="lobby.html">Host a Game</a></li>
-					<li><a href="about.html">About</a></li>
-				</ul>
-			</nav>
-			<hr />
-		</header>
-		<main>
-			
-			<div id = "pregame">
-				<div id = "hostcontrols">
-					<form method="get" action = "lobbyDataList">
-						<input type="text" hidden id="lobbyID" value="getValidLobbyID" readonly>
-						<label for="lTitle">Lobby Title</label>
-						<input size = 40 type="text" id="lTitle" placeholder="Lobby title here" /><br>
-						<label for="lHostNick">Nickname &nbsp;</label>
-						<input size = 40 type="text" id="lHostNick" placeholder="Leave blank for your username (not suggested)" /><br>
-						<label for="lPass">Password &nbsp;</label>
-						<input size = 40 type="text" id="lPass" placeholder="Leave blank for no password (not suggested)" /><br>
-						<button type="submit">Submit</button>
-					</form>
-					Pressing "Submit" the first time will start the server. Any subsequent times will update the server information.
-				</div><br><br>
-				<div id = "lobbyinfo">
-					3/X users. 
-				</div>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Tender - LobbyTitle</title>
+	<link rel="stylesheet" href="styles.css">
+	<link rel="icon" href="myicon.ico" />
+	<style>
+		#pregame,
+		#duringRound,
+		#postRound {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1 id="TopHeader">Tender <br> Welcome, <span id="usernamePlaceholder"></span>!</h1>
+		<nav id="navBar">
+			<ul>
+				<li><a href="index.html" onclick="logout()"> Logout</a></li>
+				<!-- Will replace text here with Welcome, *username* when user is logged in. -->
+				<li><a href="lobbies.html">Lobbies</a></li>
+				<li><a href="lobby.html">Host a Game</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+		</nav>
+		<hr />
+	</header>
+	<main>
+
+		<div id="pregame">
+			<div id="hostcontrols">
+				<form method="get" action="lobbyDataList">
+					<input type="text" hidden id="lobbyID" value="getValidLobbyID" readonly>
+					<label for="lTitle">Lobby Title</label>
+					<input size=40 type="text" id="lTitle" placeholder="Lobby title here" /><br>
+					<label for="lHostNick">Nickname &nbsp;</label>
+					<input size=40 type="text" id="lHostNick"
+						placeholder="Leave blank for your username (not suggested)" /><br>
+					<label for="lPass">Password &nbsp;</label>
+					<input size=40 type="text" id="lPass"
+						placeholder="Leave blank for no password (not suggested)" /><br>
+					<button type="submit">Submit</button>
+				</form>
+				Pressing "Submit" the first time will start the server. Any subsequent times will update the server
+				information.
+			</div><br><br>
+			<div id="lobbyinfo">
+				3/X users.
 			</div>
-			<div id = duringRound> <!-- Each of these divs are hidden unless the lobby is in the correct state. -->
-				<img width="400px" src="" alt="loading image..." /><br>
-				<button type = "dislike">Dislike</button><button type = "like">Like</button>
-			</div>
-			<strong>For reference: The above "section" (for the in-game voting) is a placeholder for a third-party service call. That call being to Google Maps or a similar service to retrieve all nearby restaurants for voting. The image is also obtained from this service call. This entire section is just service calling Google maps for nearby restaurants. (Adding this clarification because I was docked points last time for it.)</strong>
-			<div id = postRound>
-				<img width="400px" src="" alt="loading image..." /><br>
-				Congrats! _____ has won! <br>
-				<button type = "dislike">I don't want this (0/X votes required)</button>
-			</div>
-			<div id = "chat"> <!-- Except for this one. Chat is always available to the lobby. -->
-				<strong>Chat</strong>
-				<ul id="messages">
-					<li class="message"> <!-- DELETE THIS LATER. THIS IS AN EXAMPLE. THIS IS THE PAGE WITH WEBSOCKET COMMUNICATION. all three of these, 
+		</div>
+		<div id="duringRound"> <!-- Each of these divs are hidden unless the lobby is in the correct state. -->
+			<img width="400px" src="" alt="loading image..." /><br>
+			<button type="dislike">Dislike</button><button type="like">Like</button>
+		</div>
+		<strong>For reference: The above "section" (for the in-game voting) is a placeholder for a third-party service
+			call. That call being to Google Maps or a similar service to retrieve all nearby restaurants for voting. The
+			image is also obtained from this service call. This entire section is just service calling Google maps for
+			nearby restaurants. (Adding this clarification because I was docked points last time for it.)</strong>
+		<div id="postRound">
+			<img width="400px" src="" alt="loading image..." /><br>
+			Congrats! _____ has won! <br>
+			<button type="dislike">I don't want this (0/X votes required)</button>
+		</div>
+		<div id="chat"> <!-- Except for this one. Chat is always available to the lobby. -->
+			<strong>Chat</strong>
+			<ul id="messages">
+				<li class="message"> <!-- DELETE THIS LATER. THIS IS AN EXAMPLE. THIS IS THE PAGE WITH WEBSOCKET COMMUNICATION. all three of these, 
 						to be precise. The chat will be the websocket communication-->
-						<span class="sender">John Doe</span>
-						<span class="timestamp">12:30 PM</span>
-						<div class="content">Hello, how are you?</div>
-					</li>
-				</ul>
-				<div id="input-container">
-					<input type="text" id="message-input" placeholder="Type your message...">
-					<button id="send-button" onclick="sendMessage()">Send</button>
-				</div>
+					<span class="sender">John Doe</span>
+					<span class="timestamp">12:30 PM</span>
+					<div class="content">Hello, how are you?</div>
+				</li>
+			</ul>
+			<div id="input-container">
+				<input type="text" id="message-input" placeholder="Type your message...">
+				<button id="send-button" onclick="sendMessage()">Send</button>
 			</div>
-		</main>
-		<footer>
-			<hr />
-			<span id = "myName">Connor Blackburn</span>
-			<br />
-			<a id = "githubLink" href="https://github.com/Smartiepants109/startup">GitHub</a>
-		  </footer>
-		  <script src = "loginHandler.js"></script>
-		  <script>
-			window.addEventListener('load', function() {
-				// Your function to be executed once the page loads
-				// For example:
-				updateHeader();
-			});
-		</script>
-		
-	</body>
+		</div>
+	</main>
+	<footer>
+		<hr />
+		<span id="myName">Connor Blackburn</span>
+		<br />
+		<a id="githubLink" href="https://github.com/Smartiepants109/startup">GitHub</a>
+	</footer>
+	<script src="loginHandler.js"></script>
+	<script>
+		window.addEventListener('load', function () {
+			// Your function to be executed once the page loads
+			// For example:
+			updateHeader();
+		});
+	</script>
+	<script src="lobbyScript.js"></script>
+</body>
+
 </html>
