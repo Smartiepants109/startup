@@ -1,11 +1,11 @@
 function toggleDivs(divToShow) {
-    // takes in the actual div you want to show.
     var divs = ['pregame', 'duringRound', 'postRound'];
 
     divs.forEach(function (divId) {
         var div = document.getElementById(divId);
         if (divId === divToShow) {
             div.style.display = 'block';
+            console.log(divId)
         } else {
             div.style.display = 'none';
         }
