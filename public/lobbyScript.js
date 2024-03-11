@@ -11,7 +11,7 @@ function toggleDivs(divToShow) {
         }
     });
 }
-
+let yelpLogoLink = 'https://s3-media0.fl.yelpcdn.com/assets/public/cookbook.yji-0a2bf1d9c330d8747446.svg'
 // array of chat messages that can show up. What i'd imagine is being talked about. That, or memes.
 var chatMessages = [
     "Hello, how are you?",
@@ -117,7 +117,7 @@ function startGame() {
     };
 
     const headers = {
-        Authorization: 'Bearer YOUR_YELP_API_KEY', //FIXME replace with actual key when Yelp lets me in.
+        Authorization: 'Bearer 7mD6M8l0Br53SZ8BOicND-KzyP37cKtxkh4ULprjnI5GtSn7Ng_C_hjD9Rrpyvq73JqoliXUEugYLhNncq0bUHea8AX1XvBUCW9F7b0Al-z8WnKwTDU5wEgp-n7vZXYx', 
     };
 
     fetch(apiUrl + '?' + new URLSearchParams(params), {
@@ -176,7 +176,6 @@ function getUserLocation() {
         navigator.geolocation.getCurrentPosition(position => {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-            //fetchRestaurantsByLocation(latitude, longitude); FIXME
         }, error => {
             console.error('something went wrong. See:', error);
         });
@@ -200,7 +199,7 @@ window.addEventListener('beforeunload', function (e) {
         users: 0
     };
 
-    
+
     fetch('/api/lobbyU', {
         method: 'DELETE',
         headers: {
