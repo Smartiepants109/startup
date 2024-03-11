@@ -73,7 +73,7 @@ function handleSubmit(event) {
     var password = document.getElementById("lPass").value;
 
     var gameData = {
-        id: id,
+        id: gid,
         lobbyTitle: lobbyTitle,
         nickname: nickname || getUsername(),
         password: password || "",
@@ -96,7 +96,6 @@ function handleSubmit(event) {
         })
         .then(data => {
             console.log('Lobby created successfully:', data);
-            // Optionally, you can redirect the user to another page or update the UI accordingly
         })
         .catch(error => {
             console.error('Error creating lobby:', error);
@@ -106,10 +105,8 @@ function handleSubmit(event) {
 document.getElementById("hostcontrols").addEventListener("submit", handleSubmit);
 
 function startGame() {
-    // Define Yelp Fusion API endpoint
     const apiUrl = 'https://api.yelp.com/v3/businesses/search';
 
-    // Define parameters for the API request
     const params = {
         term: 'restaurants', //really hope that this gets any non-restaurant filtered out.
         latitude: latitude, 
@@ -189,3 +186,4 @@ function getUserLocation() {
 }
 
 getUserLocation();
+var gid = Math.floor(Math.random() * 1000000000);
