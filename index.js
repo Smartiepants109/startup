@@ -33,8 +33,8 @@ let lobbies = [];
 function updateLobbies(newLobby) {
   let lIndex = lobbies.findIndex(lobby => lobby.id === newLobby.id);
   
-  if (lobbyIndex !== -1) {
-    lobbies[lobbyIndex] = newLobby;
+  if (lIndex !== -1) {
+    lobbies[lIndex] = newLobby;
   } else {
     lobbies.push(newLobby);
   }

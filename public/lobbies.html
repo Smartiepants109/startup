@@ -59,11 +59,11 @@
 
                         const serverName = document.createElement('div');
                         serverName.classList.add('server-name');
-                        serverName.innerHTML = `<strong>Lobby: ${lobby.name}</strong>`;
+                        serverName.innerHTML = `<strong>Lobby: ${lobby.lobbyTitle}</strong>`;
 
                         const serverInfo = document.createElement('div');
                         serverInfo.classList.add('server-info');
-                        serverInfo.innerHTML = `Host: <span class="host">${lobby.host}</span><br>` +
+                        serverInfo.innerHTML = `Host: <span class="host">${lobby.nickname}</span><br>` +
                             `Users Present: <span class="presentUsers">${lobby.users}</span><br>` +
                             `General Location: <span class="location">${lobby.location}</span><br>`;
 

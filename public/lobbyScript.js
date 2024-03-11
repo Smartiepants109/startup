@@ -81,7 +81,7 @@ function handleSubmit(event) {
         users: 0
     };
 
-    fetch('/api/lobbies', {
+    fetch('/api/lobbyU', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -132,7 +132,7 @@ function startGame() {
         })
         .then(data => {
             displayRestaurants(data.businesses);
-            shareDataWithWebSocket(data.businesses); //haha, this is another FIXME. when the websocket goes here, put it in here.
+            //shareDataWithWebSocket(data.businesses); //haha, this is another FIXME. when the websocket goes here, put it in here.
         })
         .catch(error => {
             console.error('Error fetching restaurants:', error);
@@ -176,7 +176,7 @@ function getUserLocation() {
         navigator.geolocation.getCurrentPosition(position => {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-            fetchRestaurantsByLocation(latitude, longitude);
+            //fetchRestaurantsByLocation(latitude, longitude); FIXME
         }, error => {
             console.error('something went wrong. See:', error);
         });
