@@ -15,8 +15,8 @@ apiRouter.get('/lobbies', (_req, res) =>{
 });
 
 
-apiRouter.post('/time', (req, res) => {
-  lobbies = updateLobbies(req.body, lobbies);
+apiRouter.post('/lobbyU', (req, res) => {
+  updateLobbies(req.body);
   res.send(lobbies);
 });
 
@@ -28,25 +28,14 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-let lobbies = []; // didn't think of how to manage closing a lobby. Going to make it so that only so
-// many can be open at once. Making 20 the max.
-function updateLobbies(newLobby, lobbies) {
-  let found = false;
-  for (const [i, prevtime] of lobbies.entries()) {
-    if (newLobby.time > prevtime.time) {
-      lobbies.splice(i, 0, newLobby);
-      found = true;
-      break;
-    }
-  }
+let lobbies = [];
 
-  if (!found) {
+function updateLobbies(newLobby) {
+  let lIndex = lobbies.findIndex(lobby => lobby.id === newLobby.id);
+  
+  if (lobbyIndex !== -1) {
+    lobbies[lobbyIndex] = newLobby;
+  } else {
     lobbies.push(newLobby);
   }
-
-  if (lobbies.length > 20) {
-    lobbies.length = 20;
-  }
-
-  return lobbies;
 }

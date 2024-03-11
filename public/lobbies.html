@@ -42,72 +42,62 @@
     </footer>
     <script src="loginHandler.js">    </script>
     <script>
-        function addServerItem() {
-            var serverList = document.getElementById('serverlist');
-
-            var serverItem = document.createElement('li');
-            serverItem.classList.add('server-item');
-
-            var serverDetails = document.createElement('div');
-            serverDetails.classList.add('server-details');
-
-            var serverName = document.createElement('div');
-            serverName.classList.add('server-name');
-            serverName.innerHTML = '<strong>Lobby: Lobby ' + (Math.floor(Math.random() * 999)) + '</strong>';
-
-            var serverInfo = document.createElement('div');
-            serverInfo.classList.add('server-info');
-            serverInfo.innerHTML = 'Host: <span class="host">John Doe</span><br>' +
-                'Users Present: <span class="presentUsers">5</span><br>' +
-                'General Location: <span class="location">Utah</span><br>';
-
-            serverDetails.appendChild(serverName);
-            serverDetails.appendChild(serverInfo);
-
-            serverItem.appendChild(serverDetails);
-
-            var joinButton = document.createElement('button');
-            joinButton.classList.add('join-button');
-            joinButton.textContent = 'Join';
-
-            serverItem.appendChild(joinButton);
-
-            serverList.appendChild(serverItem);
-        }
-
-
-        function removeServerItem() {
-            var serverList = document.getElementById('serverlist');
-            if (serverList.children.length > 0) {
-                var randomIndex = Math.floor(Math.random() * serverList.children.length);
-                serverList.removeChild(serverList.children[randomIndex]);
-            }
-        }
         function updateServerList() {
-            var serverList = document.getElementById('serverlist');
-            var shouldAdd = Math.random() < 0.7; // 50% chance to add, 50% chance to remove
-            if (shouldAdd) {
-                addServerItem();
-            } else {
-                if (serverList.children.length == 0) {
-                    addServerItem();
-                } else {
-                    removeServerItem();
-                }
-            }
+            // Fetch lobby data from the server
+            fetch('/api/lobbies')
+                .then(response => response.json())
+                .then(lobbies => {
+                    const serverList = document.getElementById('serverlist');
+                    serverList.innerHTML = ''; // Clear previous lobby list
+
+                    // Iterate through the lobbies and create HTML elements for each lobby
+                    lobbies.forEach(lobby => {
+                        const serverItem = document.createElement('div');
+                        serverItem.classList.add('server-item');
+
+                        const serverDetails = document.createElement('div');
+                        serverDetails.classList.add('server-details');
+
+                        const serverName = document.createElement('div');
+                        serverName.classList.add('server-name');
+                        serverName.innerHTML = `<strong>Lobby: ${lobby.name}</strong>`;
+
+                        const serverInfo = document.createElement('div');
+                        serverInfo.classList.add('server-info');
+                        serverInfo.innerHTML = `Host: <span class="host">${lobby.host}</span><br>` +
+                            `Users Present: <span class="presentUsers">${lobby.users}</span><br>` +
+                            `General Location: <span class="location">${lobby.location}</span><br>`;
+
+                        serverDetails.appendChild(serverName);
+                        serverDetails.appendChild(serverInfo);
+
+                        serverItem.appendChild(serverDetails);
+
+                        const joinButton = document.createElement('button');
+                        joinButton.classList.add('join-button');
+                        joinButton.textContent = 'Join';
+
+                        serverItem.appendChild(joinButton);
+
+                        serverList.appendChild(serverItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching lobby data:', error);
+                });
         }
 
         // 5 seconds. 1/1000. remember.
         setInterval(updateServerList, 5000);
     </script>
     <script>
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             // Your function to be executed once the page loads
             // For example:
             updateHeader();
         });
     </script>
-    
+
 </body>
 
 </html>
