@@ -43,7 +43,8 @@ function updateLobbies(newLobby) {
   } else {
     lobbies.push(newLobby);
   }
-}function deleteLobbies(newLobby) {
+}
+function deleteLobbies(newLobby) {
   let lIndex = lobbies.findIndex(lobby => lobby.id === newLobby.id);
   
   if (lIndex !== -1) {

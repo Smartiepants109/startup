@@ -97,28 +97,7 @@
 				rtv();
 			});
 		});
-		window.addEventListener('beforeunload', function (e) {
-			e.preventDefault();
-			fetch('/api/lobbyU', {
-				method: 'DELETE',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify(gameData)
-			})
-				.then(response => {
-					if (!response.ok) {
-						throw new Error('Failed to delete lobby');
-					}
-					return response.json();
-				})
-				.then(data => {
-					console.log('Lobby deleted successfully:', data);
-				})
-				.catch(error => {
-					console.error('Error deleting lobby:', error);
-				});
-		});
+		
 	</script>
 	<script src="lobbyScript.js"></script>
 </body>

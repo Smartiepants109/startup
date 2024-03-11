@@ -184,6 +184,42 @@ function getUserLocation() {
         console.error('browser doesn\'t do location services');
     }
 }
+window.addEventListener('beforeunload', function (e) {
+    e.preventDefault();
 
+    var lobbyTitle = document.getElementById("lTitle").value;
+    var nickname = document.getElementById("lHostNick").value;
+    var password = document.getElementById("lPass").value;
+
+    var gameData = {
+        id: gid,
+        lobbyTitle: lobbyTitle,
+        nickname: nickname || getUsername(),
+        password: password || "",
+        location: "US",
+        users: 0
+    };
+
+    
+    fetch('/api/lobbyU', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(gameData)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to delete lobby');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Lobby deleted successfully:', data);
+        })
+        .catch(error => {
+            console.error('Error deleting lobby:', error);
+        });
+});
 getUserLocation();
 var gid = Math.floor(Math.random() * 1000000000);
