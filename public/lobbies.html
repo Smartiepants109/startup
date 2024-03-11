@@ -25,8 +25,7 @@
     </header>
     <main>
 
-        <div id="serverlist">The server list will go here, populated by the below script. the HTML for an example will
-            be below.</div>
+        <div id="serverlist"></div>
         <!-- Example server entry -->
         <ul class="server-list">
             <!-- removed previous placeholder for lobbies that open and close randomly. This is normally the database. But you aren't able to see your own server in the server browser. So, I opted to do this instead. This will be the database, however.-->
@@ -49,7 +48,7 @@
                 .then(lobbies => {
                     const serverList = document.getElementById('serverlist');
                     serverList.innerHTML = ''; // Clear previous lobby list
-
+                    
                     // Iterate through the lobbies and create HTML elements for each lobby
                     lobbies.forEach(lobby => {
                         const serverItem = document.createElement('div');
