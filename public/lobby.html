@@ -60,8 +60,8 @@
 		</div>
 		<div id="postRound">
 			<img width="400px" src="" alt="loading image..." /><br>
-		<span id = "Congradulations">Congradulations!  _____ has won! </span><br>
-		<button id="rtv" type="rtv">I don't want this (0/X votes required)</button>
+			<span id="Congradulations">Congradulations! _____ has won! </span><br>
+			<button id="rtv" type="rtv">I don't want this (0/X votes required)</button>
 		</div>
 		<div id="chat"> <!-- Except for this one. Chat is always available to the lobby. -->
 			<strong>Chat</strong>
@@ -83,9 +83,8 @@
 	<script src="loginHandler.js"></script>
 	<script>
 		window.addEventListener('load', function () {
-			
+
 			updateHeader();
-			var id = Math.floor(Math.random() * 1000000000);
 			displayChatMessages();
 			toggleDivs("pregame");
 			document.getElementById("like").addEventListener("click", function () {
@@ -97,6 +96,28 @@
 			document.getElementById("rtv").addEventListener("click", function () {
 				rtv();
 			});
+		});
+		window.addEventListener('beforeunload', function (e) {
+			e.preventDefault();
+			fetch('/api/lobbyU', {
+				method: 'DELETE',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(gameData)
+			})
+				.then(response => {
+					if (!response.ok) {
+						throw new Error('Failed to delete lobby');
+					}
+					return response.json();
+				})
+				.then(data => {
+					console.log('Lobby deleted successfully:', data);
+				})
+				.catch(error => {
+					console.error('Error deleting lobby:', error);
+				});
 		});
 	</script>
 	<script src="lobbyScript.js"></script>

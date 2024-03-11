@@ -20,6 +20,11 @@ apiRouter.post('/lobbyU', (req, res) => {
   res.send(lobbies);
 });
 
+apiRouter.delete('/lobbyU', (req, res) => {
+  deleteLobbies(req.body);
+  res.send(lobbies);
+})
+
 app.use((_req, res) => {
   res.sendFile('index.html', {root: 'public' });
 });
@@ -37,5 +42,13 @@ function updateLobbies(newLobby) {
     lobbies[lIndex] = newLobby;
   } else {
     lobbies.push(newLobby);
+  }
+}function deleteLobbies(newLobby) {
+  let lIndex = lobbies.findIndex(lobby => lobby.id === newLobby.id);
+  
+  if (lIndex !== -1) {
+    lobbies.splice(lIndex, 1);
+  } else {
+    //do nothing because it isn't here.
   }
 }
