@@ -105,6 +105,7 @@ function handleSubmit(event) {
 document.getElementById("hostcontrols").addEventListener("submit", handleSubmit);
 var latitude = 0;
 var longitude = 0;
+var biz = [];
 
 function startGame() {
     const apiUrl = 'https://api.yelp.com/v3/businesses/search';
@@ -128,35 +129,53 @@ function startGame() {
         }
         return response.json();
     })
-    .then(data => {
-        displayRestaurants(data.businesses);
-    })
-    .catch(error => {
-        console.error('Error fetching restaurants:', error);
-    });
+        .then(data => {
+            displayRestaurants(data.businesses);
+            //share results to each user in Websocket here FIXME
+
+        })
+        .catch(error => {
+            console.error('Error fetching restaurants:', error);
+        })
+        .finally(() => {
+            toggleDivs("duringRound");
+            setBuisness(tickerCount);
+        });
 
     function displayRestaurants(restaurants) {
         restaurants.forEach(restaurant => {
-            const name = restaurant.name;
-            const rating = restaurant.rating;
-            const location = restaurant.location.display_address.join(', ');
-            const imageUrl = restaurant.image_url;
+            var data = {};
+            data.name = restaurant.name;
+            data.rating = restaurant.rating;
+            data.location = restaurant.location.display_address.join(', ');
+            data.imageUrl = restaurant.image_url;
+            data.url = restaurant.url;
+            biz.push(data);
 
-            console.log('Name:', name);
-            console.log('Rating:', rating);
-            console.log('Location:', location);
-            console.log('Image URL:', imageUrl);
+            console.log('Name:', data.name);
+            console.log('Rating:', data.rating);
+            console.log('Location:', data.location);
+            console.log('Image URL:', data.imageUrl);
+            console.log('Yelp URL: ', data.url);
             console.log('--------------------------'); //pleaseworkpleaseworkpleaseworkpleaseweorsfkjeflksjefosajef os
         });
     }
 
-    toggleDivs("duringRound");
+
+
 }
 let tickerCount = 0;
-
+function setBuisness(biztm) {
+    document.getElementById("img").src = biz[biztm].imageUrl;
+    document.getElementById("rimg").textContent = biz[biztm].rating;
+    document.getElementById("yurl").href = biz[biztm].url;
+    document.getElementById("location").textContent = biz[biztm].location;
+    document.getElementById("name").textContent = biz[biztm].name;
+}
 function handleButtonClick(action) {//tickercount is still here, but now it'll go through the images that are found. Hopefully. 
 
     tickerCount = tickerCount + 1;
+    setBuisness(tickerCount);
 
     if (tickerCount >= 20) {
         toggleDivs("postRound"); // not implemented fully bc this will be using websockets in the final product.
