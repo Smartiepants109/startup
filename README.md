@@ -1,5 +1,20 @@
 # startup
  cs project
+## Service
+hahahadhfuhsafkjhsadfhsahdjhdfkjhadslkfhjadslfjhdsafjkhadsfhesljhgfaikerhfierahgda
+someone end me. 
+anyways, did all the prerequisites. As of now, the app doesn't quite use the data gained from the endpoints yet.
+fixing that tonight.
+it will fulfill all the requirements by the time that you wake up.
+Sorry, its been a combination of the service endpoint just refusing to work and be easy to debug and the hospital calling me about a bill from a YEAR ago.
+i am losing my mind
+I have paid them 5 times
+they aren't a loan company
+why are they not giving me all the information at once.
+
+will probably make this formatted properly later.
+
+
 ## JS
 Not much CSS has changed, other than a few things that really bugged me. Sorry, graders. It isn't exactly the same as the css submission, but honestly, not a whole lot has changed. Just a few buttons getting smaller and more inline, as they were bugging me as they were.
 Prerequisite: Simon JavaScript deployed to your production environment  - yup.
