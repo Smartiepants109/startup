@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 const app = express();
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
@@ -50,6 +51,25 @@ function deleteLobbies(newLobby) {
   if (lIndex !== -1) {
     lobbies.splice(lIndex, 1);
   } else {
-    //do nothing because it isn't here.
   }
 }
+
+apiRouter.get('/yelp', async (req, res) => {
+  try {
+      const { term, latitude, longitude, radius, limit, sort_by } = req.query;
+      
+      // Make a request to the Yelp API
+      const response = await axios.get('https://api.yelp.com/v3/businesses/search', {
+          params: { term, latitude, longitude, radius, limit, sort_by },
+          headers: { Authorization: 'Bearer 7mD6M8l0Br53SZ8BOicND-KzyP37cKtxkh4ULprjnI5GtSn7Ng_C_hjD9Rrpyvq73JqoliXUEugYLhNncq0bUHea8AX1XvBUCW9F7b0Al-z8WnKwTDU5wEgp-n7vZXYx' } // Replace with your Yelp API key
+      });
+
+      // Send Yelp API response back to the client
+      res.json(response.data);
+  } catch (error) {
+      // Handle errors
+      console.error('Error fetching Yelp data:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+

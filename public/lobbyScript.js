@@ -103,46 +103,43 @@ function handleSubmit(event) {
 }
 
 document.getElementById("hostcontrols").addEventListener("submit", handleSubmit);
+var latitude = 0;
+var longitude = 0;
 
 function startGame() {
     const apiUrl = 'https://api.yelp.com/v3/businesses/search';
 
     const params = {
         term: 'restaurants', //really hope that this gets any non-restaurant filtered out.
-        latitude: latitude, 
+        latitude: latitude,
         longitude: longitude,
         radius: 10000,
-        limit: 20, 
+        limit: 20,
         sort_by: 'distance',
     };
 
-    const headers = {
-        Authorization: 'Bearer 7mD6M8l0Br53SZ8BOicND-KzyP37cKtxkh4ULprjnI5GtSn7Ng_C_hjD9Rrpyvq73JqoliXUEugYLhNncq0bUHea8AX1XvBUCW9F7b0Al-z8WnKwTDU5wEgp-n7vZXYx', 
-    };
-
-    fetch(apiUrl + '?' + new URLSearchParams(params), {
+    fetch('/api/yelp?' + new URLSearchParams(params), {
         method: 'GET',
-        headers: headers,
+        headers: {
+        }
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch restaurants');
+        }
+        return response.json();
     })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to fetch restaurants');
-            }
-            return response.json();
-        })
-        .then(data => {
-            displayRestaurants(data.businesses);
-            //shareDataWithWebSocket(data.businesses); //haha, this is another FIXME. when the websocket goes here, put it in here.
-        })
-        .catch(error => {
-            console.error('Error fetching restaurants:', error);
-        });
+    .then(data => {
+        displayRestaurants(data.businesses);
+    })
+    .catch(error => {
+        console.error('Error fetching restaurants:', error);
+    });
 
     function displayRestaurants(restaurants) {
         restaurants.forEach(restaurant => {
             const name = restaurant.name;
             const rating = restaurant.rating;
-            const location = restaurant.location.display_address.join(', '); 
+            const location = restaurant.location.display_address.join(', ');
             const imageUrl = restaurant.image_url;
 
             console.log('Name:', name);
@@ -174,8 +171,8 @@ function rtv() {
 function getUserLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
         }, error => {
             console.error('something went wrong. See:', error);
         });
