@@ -12,7 +12,18 @@ I have paid them 5 times
 they aren't a loan company
 why are they not giving me all the information at once.
 
-will probably make this formatted properly later.
+will probably make this formatted properly later. Speaking of!
+Prerequisite: Simon Service deployed to your production environment - yup
+Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page - that's still there
+Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable - yup, this just makes it look nicer
+Prerequisite: At least 10 git commits spread consistently throughout the assignment period - pretty sure. I committed a lot (of crimes against my computer).
+Create an HTTP service using Node.js and Express - yes, i did that.
+Frontend served up using Express static middleware  - yup
+Your frontend calls third party service endpoints - yes, albeit indirectly. It needs to call a back-end endpoint, which then calls the actual third party one. This is the major sticking point, it wouldn't accept anything unless it was from the server itself. I really should have just done a quotes page, lol.
+Your backend provides service endpoints - hahahahahhahaHAHAHAHAHahaHAHAHAHAHAAhAhahAHahahhAhAhAhAhAhahAhAHAHAHAHAHAHA
+yeah. i worked way too long on them.
+note: git commits only represent when I was reasonably thinking that it would work.
+it almost never did.
 
 
 ## JS
