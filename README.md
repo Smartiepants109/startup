@@ -24,6 +24,7 @@ Your backend provides service endpoints - hahahahahhahaHAHAHAHAHahaHAHAHAHAHAAhA
 yeah. i worked way too long on them.
 note: git commits only represent when I was reasonably thinking that it would work.
 it almost never did.
+Your frontend calls your service endpoints - yes ( didn't see that on the bottom there, so seperate commit to add me saying "yes")
 
 
 ## JS
