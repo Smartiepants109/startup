@@ -4,6 +4,8 @@
 better formatting
 
 Prerequisite: Simon Service deployed to your production environment - yup
+
+
 Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page - that's still there
 Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable - yup, this just makes it look nicer
 Prerequisite: At least 10 git commits spread consistently throughout the assignment period - pretty sure. I committed a lot (of crimes against my computer).
