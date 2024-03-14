@@ -1,30 +1,19 @@
 # startup
  cs project
 ## Service
-hahahadhfuhsafkjhsadfhsahdjhdfkjhadslkfhjadslfjhdsafjkhadsfhesljhgfaikerhfierahgda
-someone end me. 
-anyways, did all the prerequisites. As of now, the app doesn't quite use the data gained from the endpoints yet.
-fixing that tonight.
-it will fulfill all the requirements by the time that you wake up.
-Sorry, its been a combination of the service endpoint just refusing to work and be easy to debug and the hospital calling me about a bill from a YEAR ago.
-i am losing my mind
-I have paid them 5 times
-they aren't a loan company
-why are they not giving me all the information at once.
-
-will probably make this formatted properly later. Speaking of!
+better formatting
 Prerequisite: Simon Service deployed to your production environment - yup
 Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page - that's still there
 Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable - yup, this just makes it look nicer
 Prerequisite: At least 10 git commits spread consistently throughout the assignment period - pretty sure. I committed a lot (of crimes against my computer).
-Create an HTTP service using Node.js and Express - yes, i did that.
-Frontend served up using Express static middleware  - yup
-Your frontend calls third party service endpoints - yes, albeit indirectly. It needs to call a back-end endpoint, which then calls the actual third party one. This is the major sticking point, it wouldn't accept anything unless it was from the server itself. I really should have just done a quotes page, lol.
-Your backend provides service endpoints - hahahahahhahaHAHAHAHAHahaHAHAHAHAHAAhAhahAHahahhAhAhAhAhAhahAhAHAHAHAHAHAHA
+Create an HTTP service using Node.js and Express - yes, i did that. That would be the server system. If you have two tabs open, you can "see" any currently hosted lobbies on the Lobbies screen. (make sure to press the host button to actually host it, automatically doing so would be rather tacky of me)
+Frontend served up using Express static middleware  - yup. Not sure what else to add to this one. It's served up through Express.
+Your frontend calls third party service endpoints - yes, albeit indirectly. It needs to call a back-end endpoint, which then calls the actual third party one. This is the major sticking point, it wouldn't accept anything unless it was from the server itself. I really should have just done a quotes page, lol. So, the actual third party service call is on the index.js file. I made another HTTP service that calls this third party one, because Yelp is rather fussy. Anyways, the content of what is being served up *should* be restraunts near to where you are. One problem: I don't know if it's my browser protecting my piracy, but it seems that it thinks we are in California. But, the coordinates it grabs are automatic. Should I make a manual override for users to give more accurate data?
+Your backend provides service endpoints - Yes. They are in the index.js file, at least if I understood correctly as to what you are asking. If I didn't, please let me know.
 yeah. i worked way too long on them.
 note: git commits only represent when I was reasonably thinking that it would work.
 it almost never did.
-Your frontend calls your service endpoints - yes ( didn't see that on the bottom there, so seperate commit to add me saying "yes")
+Your frontend calls your service endpoints - Once again, if I understood what was meant by "service endpoint", that is what I called throughout my code. It is scattered a bit between individual scripts in my HTML files (for things I only use once) and .js files (for those that I use more often).
 
 
 ## JS
