@@ -1,7 +1,7 @@
 # startup
  cs project
 ## Service
-better formatting
+better formatting -  learned that the readme wasn't using my newlines for some reason unless I used two. So I added two.
 
 Prerequisite: Simon Service deployed to your production environment - yup
 
