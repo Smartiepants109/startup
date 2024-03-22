@@ -13,6 +13,10 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
 function attemptLogin(username, password){
     setUsername(username); // This is here for local session storage. Nice to have so I don't have to hit the db every 10 seconds.
+    const query = {uname: username}
+    const options = {limit: 1}
+    const users = mclient.db('tender').collection('users');
+    const curse = collection.find()
     return true;
 }
 
