@@ -33,3 +33,21 @@ function getGameData(){
 function logout() {
     sessionStorage.removeItem('username');
 }
+function attemptLogin(username, password){
+    return true;
+}
+document.getElementById("loginForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // don't know what it does by default. Don't want it to do that yet. Only what I tell it to.
+    var username = document.getElementById("uname").value;
+    var password = document.getElementById("pword").value;
+    if(attemptLogin(username, password)){
+        setUsername(username);
+        var url = "lobbies.html?username=" + encodeURIComponent(username);
+        // go to Lobbies while logged in.
+        window.location.href = url;
+    } else{
+
+    }
+
+    
+  });
