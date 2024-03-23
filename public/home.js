@@ -13,26 +13,30 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
 function attemptLogin(username, password){
     setUsername(username); // This is here for local session storage. Nice to have so I don't have to hit the db every 10 seconds.
+    var login = {
+        username: username,
+        password: password
+    };
     fetch('/api/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(
-            {username: username,
-            password:password})
+        body: JSON.stringify(login)
     })
         .then(response => {
             if (!response.ok) {
                 throw new Error('');
             }
-            return response.json();
+            return false;
         })
         .then(data => {
             console.log('logged in', data);
+            return true;
         })
         .catch(error => {
             console.error('', error);
+            return false;
         });
 }
 
