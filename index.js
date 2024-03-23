@@ -1,5 +1,12 @@
 const express = require('express');
 const axios = require('axios');
+const {MongoClient} = require('mongodb');
+const config = require('./dbConfig.json');
+
+const murl = 'mongodb+srv://${config.userName}:${config.password}@${config.hostname}';
+const mclient = new MongoClient(murl);
+
+
 const app = express();
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;

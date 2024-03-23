@@ -1,4 +1,3 @@
-const {MongoClient} = require('mongodb');
 
 function getUsername() {
     return localStorage.getItem('username');
@@ -31,6 +30,3 @@ function getGameData(){
 
 
 
-const config = require('./dbConfig.json');
-const murl = 'mongodb+srv://${config.userName}:${config.password}@${config.hostname}';
-const mclient = new MongoClient(murl);
