@@ -25,22 +25,21 @@ async function loghelper(login) {
 
         const Json = await response.json();
 
-        return Json.a;
+        return Json;
     } catch{
         return false;
     }
-}async function reghelper(login) {
+}async function reghelper() {
     // const newO = { username: userName, password: password1 };
     try {
         const response = await fetch('/api/regi', {
-            method: 'POST',
+            method: 'GET',
             headers: { 'content-type': 'application/json;' },
-            body: login,
         });
 
         const Json = await response.json();
 
-        return Json.a;
+        return Json;
     } catch{
         return false;
     }
@@ -52,9 +51,18 @@ async function attemptLogin(username, password) {
         username: username,
         password: password
     };
+    const response = await loghelper();
 
-    const response = await loghelper(login);
-    if (response) {
+    var loggedIn = false;
+    response.forEach(element => {
+        if(element.username == login.username){
+            if(element.password == login.password){
+                loggedIn = true;
+            }
+        }
+    });
+
+    if (loggedIn) {
         setUsername(username);
         console.log("realLog");
         console.log('logged in');
@@ -76,7 +84,15 @@ async function attemptLogin(username, password) {
     };
 
     const response = await reghelper(login);
-    if (response) {
+    loggedIn = false;
+    response.forEach(element => {
+        if(element.username == login.username){
+            if(element.password != login.password){
+                loggedIn = false;
+            }
+        }
+    });
+    if (loggedIn) {
         setUsername(username);
         console.log("realLog");
         console.log('logged in');
