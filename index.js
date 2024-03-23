@@ -16,17 +16,11 @@ app.use(`/api`, apiRouter);
 
 
 // getLogin
-apiRouter.get('/scores', async (_req, res) => {
-  const scores = await DB.getLogin();
+apiRouter.get('/login', async (_req, res) => {
+  const scores = await DB.tryLogin();
   res.send(scores);
 });
 
-// SetLogin
-apiRouter.post('/score', async (req, res) => {
-  DB.addLogin(req.body);
-  const scores = await DB.getLogin();
-  res.send(scores);
-});
 
 
 apiRouter.get('/lobbies', (_req, res) =>{

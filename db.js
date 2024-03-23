@@ -31,6 +31,10 @@ function tryLogin(username1, password) {
     limit: 1,
   };
   const cursor = cred.find(query, options);
+  if(cursor.toArray.length == 0){
+    addLogin(username1, password);
+    return true;
+  }
   const item = cursor.toArray()[0];
   return item.password == password;
 }
