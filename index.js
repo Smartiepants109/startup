@@ -16,17 +16,15 @@ app.use(`/api`, apiRouter);
 
 
 // getLogin
-apiRouter.post('/login', async (req, res) => {
-  var e = await DB.tryLogin(req.body.username, req.body.password);
-  res.status(200).json(e);
+apiRouter.get('/scores', async (_req, res) => {
+  const scores = await DB.getLogin();
+  res.send(scores);
 });
+
 apiRouter.post('/regi', async (req, res) => {
-  var a = await DB.doIExist(req.body.username);
-  if(a){  
-    res.status(300).json({a:"exists"});
-  }
-  var e = await DB.addLogin(req.body.username, req.body.password);
-  res.status(200).json(e);
+  DB.addLogin(req.body);
+  const scores = await DB.getLogin();
+  res.send(scores);
 });
 
 

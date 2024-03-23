@@ -17,19 +17,13 @@ const cred = db.collection('cred');
 });
 
 
-async function addLogin(score) {
-  const result = await scoreCollection.insertOne(score);
+async function addLogin(login) {
+  const result = await cred.insertOne(login);
   return result;
 }
 
 function getLogin() {
-  const query = { score: { $gt: 0, $lt: 900 } };
-  const options = {
-    sort: { score: -1 },
-    limit: 10,
-  };
-  const cursor = scoreCollection.find(query, options);
-  return cursor.toArray();
+  return cred.find();
 }
 
 module.exports = { addLogin, getLogin };
