@@ -17,25 +17,25 @@ const cred = db.collection('cred');
 });
 
 async function addLogin(username1, password1) {
-  const result = await cred.insertOne({
+  var result = await cred.insertOne({
     username: username1,
     password: password1
   });
   return result;
 }
 
-function tryLogin(username1, password) {
-  const query = { username: username1 };
-  const options = {
-    limit: 1
-  };
-  const cursor = cred.find(query, options);
-  if(cursor.toArray.length == 0){
+async function tryLogin(username1, password) {
+  var query = { username: username1 };
+  var cursor = await cred.findOne(query);
+
+  if(!cursor){
     addLogin(username1, password);
-    return true;
+    return {a: true};
   }
-  const item = cursor.toArray()[0];
-  return item.password == password;
+  if(cursor.password === password){
+    return {a:true};
+  }
+  return {a:false};
 }
 
 module.exports = { addLogin, tryLogin };
