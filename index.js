@@ -1,10 +1,6 @@
 const express = require('express');
 const axios = require('axios');
-const {MongoClient} = require('mongodb');
-const config = require('./dbConfig.json');
-
-const murl = 'mongodb+srv://${config.userName}:${config.password}@${config.hostname}';
-const mclient = new MongoClient(murl);
+const DB = require('./db.js');
 
 
 const app = express();
@@ -17,6 +13,21 @@ app.use(express.static('public'));
 
 const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
+
+
+// getLogin
+apiRouter.get('/scores', async (_req, res) => {
+  const scores = await DB.getLogin();
+  res.send(scores);
+});
+
+// SetLogin
+apiRouter.post('/score', async (req, res) => {
+  DB.addLogin(req.body);
+  const scores = await DB.getLogin();
+  res.send(scores);
+});
+
 
 apiRouter.get('/lobbies', (_req, res) =>{
   res.send(lobbies);

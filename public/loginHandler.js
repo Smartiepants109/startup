@@ -1,4 +1,6 @@
-
+function setUsername(username){
+    storeTempData('username', username);
+}
 function getUsername() {
     return localStorage.getItem('username');
 }
