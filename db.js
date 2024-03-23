@@ -15,32 +15,21 @@ const cred = db.collection('cred');
   console.log(`Unable to connect to database with ${url} because ${ex.message}`);
   process.exit(1);
 });
-async function doIExist(username1){
-  var query = {username: username1};
-  var cursor = await cred.findOne(query);
-  return cursor;
-}
-async function addLogin(username1, password1) {
-  var result = await cred.insertOne({
-    username: username1,
-    password: password1
-  });
+
+
+async function addLogin(score) {
+  const result = await scoreCollection.insertOne(score);
   return result;
 }
 
-async function tryLogin(username1, password) {
-  var query = {
-    username: username1
+function getLogin() {
+  const query = { score: { $gt: 0, $lt: 900 } };
+  const options = {
+    sort: { score: -1 },
+    limit: 10,
   };
-  var cursor = await cred.findOne(query);
-
-  if(!cursor){
-    return {a: false};
-  }
-  if(cursor.password == password){
-    return {a:true};
-  }
-  return {a:false};
+  const cursor = scoreCollection.find(query, options);
+  return cursor.toArray();
 }
 
-module.exports = { addLogin, tryLogin };
+module.exports = { addLogin, getLogin };
