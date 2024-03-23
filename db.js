@@ -29,10 +29,10 @@ async function tryLogin(username1, password) {
   var cursor = await cred.findOne(query);
 
   if(!cursor){
-    addLogin(username1, password);
+    await addLogin(username1, password);
     return {a: true};
   }
-  if(cursor.password === password){
+  if(cursor.password == password){
     return {a:true};
   }
   return {a:false};

@@ -1,5 +1,5 @@
 function setUsername(username){
-    storeTempData('username', username);
+    localStorage.setItem('username', username);
 }
 function getUsername() {
     return localStorage.getItem('username');
