@@ -14,10 +14,10 @@
         <h1 id="TopHeader">Tender<br> Welcome, <span id="usernamePlaceholder"></span>!</h1>
         <nav id="navBar">
             <ul>
-                <li> <a href="index.html"> Logout</a></li>
+                <li> <a href="index.html" onclick="pain()"> Logout</a></li>
                 <!-- Will replace text here with Welcome, *username* when user is logged in. -->
                 <li><a href="lobbies.html">Lobbies</a></li>
-                <li><a href="lobby.html">Host a Game</a></li>
+                <li><a href="lobby.html" onclick="checkForLogin()">Host a Game</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
@@ -40,6 +40,14 @@
     </footer>
     <script src="loginHandler.js">    </script>
     <script>
+        function pain(){
+            setUsername("");
+        }
+        function checkForLogin(){
+            if(getUsername() == ""){
+                window.location.href = "index.html";
+            }
+        }
         function updateServerList() {
             // Fetch lobby data from the server
             fetch('/api/lobbies')
