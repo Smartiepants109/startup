@@ -1,5 +1,38 @@
 # startup
  cs project
+## Signin
+Prerequisite: Simon Login deployed to your production environment
+Yup	
+
+This criterion is linked to a Learning Outcome Prerequisite: A link to your GitHub startup repository prominently displayed on your application's home page
+Yup	
+
+
+This criterion is linked to a Learning Outcome Prerequisite: Notes in your startup Git repository README.md file documenting what you modified and added with this deliverable
+	Yup!
+
+This criterion is linked to a Learning Outcome Prerequisite: At least 10 git commits spread consistently throughout the assignment period
+	I believe so, yes.
+
+This criterion is linked to a Learning Outcome Supports new user registration
+	That it does.
+
+This criterion is linked to a Learning Outcome Supports existing user authentication
+It definitely does (if not now, in 5 minutes it will)
+
+This criterion is linked to a Learning Outcome Stores application data in MongoDB
+Yes. The user's credentials. In future iterations, it can be made to store user settings.
+
+This criterion is linked to a Learning Outcome Stores and retrieves credentials in MongoDB
+Yes, that it does.
+
+This criterion is linked to a Learning Outcome Restricts application functionality based upon authentication
+Yes. It won't let you host if you are a guest. In 10 minutes, perhaps
+
+
+
+
+
 ## Service
 better formatting -  learned that the readme wasn't using my newlines for some reason unless I used two. So I added two.
 
