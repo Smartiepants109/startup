@@ -28,7 +28,6 @@ function attemptLogin(username, password){
             if (!response.ok) {
                 throw new Error('');
             }
-            return false;
         })
         .then(data => {
             console.log('logged in', data);

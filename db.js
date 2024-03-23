@@ -27,8 +27,7 @@ async function addLogin(username1, password1) {
 function tryLogin(username1, password) {
   const query = { username: username1 };
   const options = {
-    sort: { score: -1 },
-    limit: 1,
+    limit: 1
   };
   const cursor = cred.find(query, options);
   if(cursor.toArray.length == 0){
