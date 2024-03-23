@@ -13,21 +13,29 @@ document.getElementById("loginForm").addEventListener("submit", function (event)
 
 function attemptLogin(username, password){
     setUsername(username); // This is here for local session storage. Nice to have so I don't have to hit the db every 10 seconds.
-    const query = {uname: username};
-    const options = {limit: 1};
-    const users = mclient.db('tender').collection('users');
-    const curse = users.find(query, options);
-    const array = curse.toArray();
-    if (array.length == 0) {
-        users.insertOne({"uname":username, "pw":password});
-    } else {
-        if(array[0].pw == password){
-            return true;
-        }
-        return false
-    }
-    return true;
+    fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+            {username: username,
+            password:password})
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('logged in', data);
+        })
+        .catch(error => {
+            console.error('', error);
+        });
 }
+
 
 function logout() {
     sessionStorage.removeItem('username');

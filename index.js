@@ -17,8 +17,8 @@ app.use(`/api`, apiRouter);
 
 // getLogin
 apiRouter.get('/login', async (_req, res) => {
-  const scores = await DB.tryLogin();
-  res.send(scores);
+  const e = await DB.tryLogin(req.body);
+  res.send(e);
 });
 
 
