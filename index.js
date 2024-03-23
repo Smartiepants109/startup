@@ -17,7 +17,7 @@ app.use(`/api`, apiRouter);
 
 // getLogin
 apiRouter.post('/login', async (req, res) => {
-  const e = await DB.tryLogin(req.body);
+  const e = await DB.tryLogin(req.body.username, req.body.password);
   res.send(e);
 });
 
