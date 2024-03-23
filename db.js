@@ -15,7 +15,11 @@ const cred = db.collection('cred');
   console.log(`Unable to connect to database with ${url} because ${ex.message}`);
   process.exit(1);
 });
-
+async function doIExist(username1){
+  var query = {username: username1};
+  var cursor = await cred.findOne(query);
+  return cursor;
+}
 async function addLogin(username1, password1) {
   var result = await cred.insertOne({
     username: username1,
@@ -25,12 +29,13 @@ async function addLogin(username1, password1) {
 }
 
 async function tryLogin(username1, password) {
-  var query = { username: username1 };
+  var query = {
+    username: username1
+  };
   var cursor = await cred.findOne(query);
 
   if(!cursor){
-    await addLogin(username1, password);
-    return {a: true};
+    return {a: false};
   }
   if(cursor.password == password){
     return {a:true};
