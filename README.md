@@ -18,7 +18,7 @@ This criterion is linked to a Learning Outcome Supports new user registration
 	That it does.
 
 This criterion is linked to a Learning Outcome Supports existing user authentication
-It definitely does (if not now, in 5 minutes it will)
+It definitely does
 
 This criterion is linked to a Learning Outcome Stores application data in MongoDB
 Yes. The user's credentials. In future iterations, it can be made to store user settings.
@@ -27,7 +27,7 @@ This criterion is linked to a Learning Outcome Stores and retrieves credentials 
 Yes, that it does.
 
 This criterion is linked to a Learning Outcome Restricts application functionality based upon authentication
-Yes. It won't let you host if you are a guest. In 10 minutes, perhaps
+Yes. It won't let you host if you are a guest.
 
 
 
